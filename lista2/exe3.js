@@ -25,14 +25,23 @@ function requisito1(vet) {
     objeto.sexo = prompt("Informe M ou F").toUpperCase()
     objeto.altura = Number(prompt("Informe a altura"))
     objeto.idade = Number(prompt("Informe a idade"))
-    objeto.olhos = prompt("Informe a cor dos olhos - A-azul - V- verde - C- castanho")
+    objeto.olhos = prompt("Informe a cor dos olhos - A-azul - V- verde - C- castanho").toUpperCase()
     vet.push(objeto)
     console.log("Habitante cadastrado com sucesso")
-
 }
 
 function requisito2(vet) {
-
+    var soma = 0
+    var qtde = 0
+    for (var i=0; vet.length; i++) {
+        if ((vet[i].olhos =="C") && (vet[i].altura > 1.60)) {
+            soma = soma + vet[i].idade
+            qtde++
+        }
+    }
+    if (qtde != 0) {
+        console.log(`A média é:  ${soma / qtde}`)
+    } else console.log(`A média é:  ${soma / qtde}`)
 }
 
 function requisito3(vet) {
