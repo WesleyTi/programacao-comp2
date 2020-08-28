@@ -36,6 +36,7 @@ function requisito1(vet) {
     objeto.olhos = prompt("Informe a cor dos olhos - A-azul - V- verde - C- castanho").toUpperCase()
     vet.push(objeto)
     console.log("Habitante cadastrado com sucesso")
+    console.log(objeto)
 }
 
 function requisito2(vet) {
