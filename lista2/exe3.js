@@ -47,12 +47,11 @@ function requisito2(vet) {
             soma = soma + vet[i].idade
             qtde++
         } else {
-            console.log(`Nenhum habitante cadastrado com olhos castanhos `)
+            console.log(`Nenhum habitante com altura superior a 1.60cm e com olhos castanhos`)
         }
     }
-    if (qtde != 0) {
-        console.log(`A média é:  ${soma / qtde}`)
-    } else console.log(`A média é:  ${soma / qtde}`)
+    console.log(`A média de idade é:  ${soma / qtde}`)
+    
 }
 
 function requisito3(vet) {
@@ -74,7 +73,7 @@ function requisito4(vet) {
             qtd++
         }
     }
-    console.log(`A quantidade do sexo feminino entre 20 e 45 anos, ou que tenham olhos verdes e altura inferior a 1.70m, é: ${qtd}`)
+    console.log(`A quantidade de pessoas do sexo feminino entre 20 e 45 anos, ou que tenham olhos verdes e altura inferior a 1.70m, é: ${qtd}`)
 }
 
 function requisito5(vet) {
@@ -84,7 +83,7 @@ function requisito5(vet) {
             qtdHomens++
         }
     }
-    console.log(`Percentual de homens: ${qtdHomens * 100 / vet.length}`)
+    console.log(`Percentual de homens: ${qtdHomens * 100 / vet.length}%`)
 }
 
 chefe()
