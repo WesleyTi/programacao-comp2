@@ -11,10 +11,10 @@ Escolha:
 */
 
 function principal() {
-    var vendedores = []
-    var vendas = []
+    let vendedores = []
+    let vendas = []
     do {
-        var escolha = Number(prompt(`Escolha: 
+        let escolha = Number(prompt(`Escolha: 
         [1] - Cadastrar vendedor
         [2] - Cadastrar venda
         [3] - Consultar as vendas de um funcionário em determinado mês
@@ -49,10 +49,10 @@ function principal() {
 // cadastra o vendedor
 function cadastrarVendedor(vendor) {
     
-    var vendedor = new Object ()
+    let vendedor = new Object ()
         vendedor.codigo = Number(prompt(`Informe o código do vendedor`))
         vendedor.nome = prompt(`Nome do vendedor`)
-        for (var i = 0; i < vendor.length; i++) {
+        for (let i = 0; i < vendor.length; i++) {
             if (vendor[i].codigo == vendedor.codigo) {
                console.log(`Vendedor já existe!`)
                return 0
@@ -68,16 +68,16 @@ function cadastrarVendedor(vendor) {
 
 function cadastrarVenda(ven, vendor) {
 
-    var venda = new Object()
+    let venda = new Object()
     venda.codProduto = Number(prompt(`Informe o código da venda`))
     venda.codVendedor = Number(prompt(`Informe o código do vendedor`))
     venda.produto = prompt(`Nome do produto`)
     venda.preco = Number(prompt(`Preço do produto`))
     venda.data = prompt(`O mês da venda`)
     
-    for (var j = 0; j < vendor.length; j++) {
+    for (let j = 0; j < vendor.length; j++) {
         if (vendor[j].codigo == venda.codVendedor)  {
-            for (var i = 0; i < ven.length; i++) {
+            for (let i = 0; i < ven.length; i++) {
                 if ((ven[i].codVendedor == venda.codVendedor) && (ven[i].data == venda.data )) {
                     console.log(`Venda já cadastrada para o vendedor neste mês`)
                     return 0           
@@ -93,15 +93,13 @@ function cadastrarVenda(ven, vendor) {
             return 0
         }
     }
-        
-       
 }
 
 function consultarVendas(ven) {
-    var codigoVendedor = Number(prompt(`Informe o código do vendedor`))
-    var dataVenda = prompt(`Informe o mês da venda `)
-    var soma = 0
-    for (var i = 0; i < ven.length; i++) {
+    let codigoVendedor = Number(prompt(`Informe o código do vendedor`))
+    let dataVenda = prompt(`Informe o mês da venda `)
+    let soma = 0
+    for (let i = 0; i < ven.length; i++) {
         if ((codigoVendedor == ven[i].codVendedor) && (dataVenda == ven[i].data)){
             soma = soma + ven[i].preco
             console.log(`Vendas no período: ${soma}`)
@@ -115,10 +113,10 @@ function consultarVendas(ven) {
 }
 
 function consultarTotalVendas(ven) {
-    var codigoVendedor = prompt(`Informe o código do vendedor`)
-    var somaVendas = 0
-    var countVendas = 0
-    for (var i = 0; i < ven.length; i++) {
+    let codigoVendedor = prompt(`Informe o código do vendedor`)
+    let somaVendas = 0
+    let countVendas = 0
+    for (let i = 0; i < ven.length; i++) {
         if (ven[i].codVendedor == codigoVendedor) {
             somaVendas = somaVendas + ven[i].preco
             countVendas++
@@ -132,15 +130,15 @@ function consultarTotalVendas(ven) {
 }
 
 function vendedorComMaisVendas(vendor, ven) {
-    var cod = 0
-    var maiorVenda = ven[1].data
-    var nome = " "
-    var mes = prompt("Informe o mês, para ver quem fez mais vendas")
-    for (var i = 0; i < ven.length; i++) {
+    let cod = 0
+    let maiorVenda = 0
+    let nome = " "
+    let mes = prompt("Informe o mês, para ver quem fez mais vendas")
+    for (let i = 0; i < ven.length; i++) {
         if (mes == ven[i].data) {
             maiorVenda = ven[i].preco
             cod = ven[i].codVendedor
-            for (var j = 0; j < vendor.length; j++) {
+            for (let j = 0; j < vendor.length; j++) {
                 if (cod == vendor[j].codigo) {
                     nome = vendor[j].nome
                 }
@@ -152,9 +150,9 @@ function vendedorComMaisVendas(vendor, ven) {
 }
 
 function mesComMaiorVenda(ven) {
-    var mes = 0
-    var maiorVenda = ven[1].preco
-    for (var i = 0; i < ven.length; i++) {
+    let mes = 0
+    let maiorVenda = ven[1].preco
+    for (let i = 0; i < ven.length; i++) {
         if (ven[i].preco > maiorVenda) {
             mes = ven[i].data
             maiorVenda = ven[i].preco
