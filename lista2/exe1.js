@@ -150,14 +150,18 @@ function vendedorComMaisVendas(vendor, ven) {
 }
 
 function mesComMaiorVenda(ven) {
-    let mes = 0
-    let maiorVenda = ven[1].preco
-    for (let i = 0; i < ven.length; i++) {
-        if (ven[i].preco > maiorVenda) {
-            mes = ven[i].data
-            maiorVenda = ven[i].preco
-        }
-    }
-    console.log(`O mês com maior venda foi: ${mes}, com o valor da venda de: ${maiorVenda}`)
+    let meses = [0,0,0,0,0,0,0,0,0,0,0,0] 
+    for(let i=0;i<ven.length;i++){ 
+        let posicao = ven[i].mes - 1 
+        meses[posicao] = meses[posicao] + ven[i].valor 
+    }  
+    let maiorValor = meses[0] 
+    for(let i=1; i<ven.length;i++){ 
+        if (ven[i].valor > maiorValor){
+            maiorValor = ven[i].valor 
+            let posicao = ven.indexOf(maiorValor) // posição no vetor contendo o maior valor 
+        }    
+    }   
+    console.log(`Mês com mais vendas ${posicao + 1} e o valor é ${maiorValor}`)
 }
 principal()
